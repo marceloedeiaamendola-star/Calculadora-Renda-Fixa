@@ -1,5 +1,6 @@
 # Deploy limpo após falha transitória de publicação do Pages
 name: Deploy Renda Fixa Calculator to GitHub Pages
+# Nova execução limpa para publicar os ajustes da barra superior do iOS
 on:
   push:
     branches: [main]
