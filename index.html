@@ -15,7 +15,7 @@ header{display:flex;justify-content:flex-start;align-items:center;margin:0 0 7px
 header h1{font-size:30px !important;margin:0;color:#174ea6;font-weight:800;letter-spacing:-.5px;line-height:1.05;white-space:nowrap}
 .sub{font-size:10px;color:var(--muted);margin-top:2px}
 button{font:inherit;cursor:pointer}
-.donate{position:absolute;right:18px;bottom:16px;z-index:20;border:0;border-radius:30px;padding:7px 9px;background:#fff0f1;color:#b42336;font-weight:750;font-size:11px;white-space:nowrap}
+.donate{position:absolute;right:18px;bottom:16px;z-index:20;border:0;border-radius:30px;padding:7px 9px;background:#fff0f1;color:#b42336;font-weight:750;font-size:11px;white-space:nowrap}\n.reset{position:absolute;left:18px;bottom:16px;z-index:20;border:0;border-radius:30px;padding:7px 10px;background:#174ea6;color:#fff;font-weight:750;font-size:11px;white-space:nowrap;box-shadow:0 2px 8px #102a6320}
 .card{background:white;border:1px solid var(--line);border-radius:13px;padding:8px;margin:0 5px 6px;box-shadow:0 2px 8px #122b5510;flex:0 0 auto}
 .label{font-size:13px;line-height:1.1;color:var(--muted);font-weight:750;display:block;margin-bottom:4px}
 .sect{font-size:11px;text-transform:uppercase;letter-spacing:.25px;font-weight:800;color:#344054;margin:0 0 5px}
@@ -60,7 +60,7 @@ header h1{font-size:24px !important;white-space:nowrap}
 @media(max-height:680px){
 :root{--number-size:24px}
 .sub{font-size:9px}
-.donate{padding:5px 7px;bottom:12px}
+.donate{padding:5px 7px;bottom:12px}\n.reset{padding:5px 8px;bottom:12px}
 .field input{height:36px}
 .foot{font-size:8px}
 }
@@ -77,7 +77,7 @@ main#app header h1{font-size:30px !important;color:#174ea6 !important;letter-spa
 <div class="grid"><div class="field"><input id="rate" type="number" aria-label="Rentabilidade do investimento em percentual do CDI" min="0" step=".1" value="90"></div><div class="field"><input id="months" type="number" aria-label="Prazo em meses" min="1" max="600" step="1" value="12"></div></div><div class="note"><span>Rentabilidade em % do CDI</span><span>Prazo em meses</span></div></section>
 <section class="result" aria-live="polite"><div class="muted" id="eqLabel">CDB equivalente</div><div class="big" id="equiv">—</div><div class="rgrid">
 <div class="rbox"><span>Montante líquido LCA / LCI</span><b id="lciFinal">—</b></div><div class="rbox"><span>Montante líquido CDB equivalente</span><b id="cdbFinal">—</b></div><div class="rbox"><span>IR aplicado ao CDB</span><b id="ir">—</b></div><div class="rbox"><span>Rendimento líquido</span><b id="gain">—</b></div></div><div class="explain" id="explain">Montante final sobre R$ 1.000,00</div></section>
-<div class="foot">Simulação com taxa constante e juros compostos. IR do CDB sobre o rendimento no resgate. Prazo convertido a 30 dias/mês para definir a alíquota. Não é recomendação de investimento.<br>Idealizador: Marcelo Amendola</div><button class="donate" id="donate">♥ Doar R$ 1</button></main>
+<div class="foot">Simulação com taxa constante e juros compostos. IR do CDB sobre o rendimento no resgate. Prazo convertido a 30 dias/mês para definir a alíquota. Não é recomendação de investimento.<br>Idealizador: Marcelo Amendola</div><button class="reset" id="reset" type="button">↺ Resetar</button><button class="donate" id="donate">♥ Doar R$ 1</button></main>
 <main id="donationPage" class="donation hidden"><h2>Apoie este projeto ♥</h2><p>Se você gostou, considere doar R$ 1 usando o QR Code Pix.</p><img class="qr" src="pix-doacao.png" alt="QR Code Pix para doação"><p>Obrigado por apoiar o desenvolvimento!</p><button class="back" id="back">Voltar à calculadora</button></main>
 <script>
 (()=>{const $=id=>document.getElementById(id),money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}),pct=n=>n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%';let mode='lci',cdiManual=false;
@@ -86,6 +86,6 @@ const factor=(c,r,m)=>Math.pow(1+(c/100)*(r/100),m/12);
 function calc(){let c=+$('cdi').value,r=+$('rate').value,m=+$('months').value;if(![c,r,m].every(Number.isFinite)||c<=0||r<0||m<=0){$('equiv').textContent='Confira os dados';return}let t=tax(m),l,cdb;if(mode==='lci'){l=r;let net=factor(c,l,m)-1;cdb=(Math.pow(1+net/(1-t),12/m)-1)/(c/100)*100}else{cdb=r;let net=(factor(c,cdb,m)-1)*(1-t);l=(Math.pow(1+net,12/m)-1)/(c/100)*100}let lf=1000*factor(c,l,m),cg=1000*(factor(c,cdb,m)-1),cf=1000+cg*(1-t);$('eqLabel').textContent=mode==='lci'?'CDB equivalente':'LCA / LCI equivalente';$('equiv').textContent=pct(mode==='lci'?cdb:l);$('lciFinal').textContent=money(lf);$('cdbFinal').textContent=money(cf);$('ir').textContent=pct(t*100);$('gain').textContent=money(lf-1000);$('explain').textContent='Montante final sobre R$ 1.000,00 · '+m+' '+(m===1?'mês':'meses')+' · taxa informada '+pct(r)+' do CDI'}
 document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('active',x===b));$('rate').value=mode==='lci'?90:100;calc()});
 ['rate','months','cdi'].forEach(id=>$(id).addEventListener('input',()=>{if(id==='cdi')cdiManual=true;calc()}));$('selic').addEventListener('input',()=>{if(!cdiManual)$('cdi').value=(+$('selic').value-.10).toFixed(2);calc()});
-$('donate').onclick=()=>{$('app').classList.add('hidden');$('donationPage').classList.remove('hidden')};$('back').onclick=()=>{$('donationPage').classList.add('hidden');$('app').classList.remove('hidden')};
+$('reset').onclick=()=>{mode='lci';cdiManual=false;$('selic').value='13.75';$('cdi').value='13.65';$('rate').value='90';$('months').value='12';document.querySelectorAll('.mode').forEach(b=>b.classList.toggle('active',b.dataset.mode==='lci'));$('status').textContent='CDI sugerido = Selic − 0,10 p.p. · Taxas editáveis';calc()};$('donate').onclick=()=>{$('app').classList.add('hidden');$('donationPage').classList.remove('hidden')};$('back').onclick=()=>{$('donationPage').classList.add('hidden');$('app').classList.remove('hidden')};
 async function updateSelic(){try{let r=await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json',{cache:'no-store'});if(!r.ok)throw 0;let d=await r.json(),v=Number(String(d[0].valor).replace(',','.'));if(v>0){$('selic').value=v.toFixed(2);if(!cdiManual)$('cdi').value=(v-.10).toFixed(2);$('status').textContent='Selic atualizada pelo Banco Central · '+d[0].data+' · CDI = Selic − 0,10 p.p.';calc()}}catch(e){$('status').textContent='Não foi possível atualizar a Selic. Valores iniciais editáveis.'}}calc();updateSelic()})();
 </script></body></html>
