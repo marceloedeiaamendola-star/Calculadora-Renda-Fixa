@@ -8,32 +8,32 @@
 :root{--bg:#f3f6fb;--ink:#14213a;--muted:#65748b;--line:#dce5f0;--blue:#155eef;--number-size:30px}
 *{box-sizing:border-box}
 html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg)}
-body{color:var(--ink);font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+body{color:var(--ink);font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
 main{position:relative;width:100%;max-width:500px;height:100vh;height:100dvh;min-height:0;margin:0 auto;padding:6px 12px 7px;background:#edf3fc;display:flex;flex-direction:column;overflow:hidden}
 main::before{content:"";position:absolute;inset:7px;border:3px solid #174ea6;border-radius:20px;pointer-events:none;z-index:10}
 header{display:flex;justify-content:space-between;align-items:center;margin:0 0 5px;gap:7px;flex:0 0 auto;padding:3px 7px}
-h1{font-size:18px;margin:0;font-weight:800;letter-spacing:-.4px;line-height:1.05}
-.sub{font-size:9px;color:var(--muted);margin-top:2px}
+h1{font-size:20px;margin:0;font-weight:800;letter-spacing:-.4px;line-height:1.05}
+.sub{font-size:10px;color:var(--muted);margin-top:2px}
 button{font:inherit;cursor:pointer}
-.donate{border:0;border-radius:30px;padding:7px 9px;background:#fff0f1;color:#b42336;font-weight:750;font-size:10px;white-space:nowrap}
+.donate{border:0;border-radius:30px;padding:7px 9px;background:#fff0f1;color:#b42336;font-weight:750;font-size:11px;white-space:nowrap}
 .card{background:white;border:1px solid var(--line);border-radius:13px;padding:8px;margin:0 5px 6px;box-shadow:0 2px 8px #122b5510;flex:0 0 auto}
-.label{font-size:12px;line-height:1.1;color:var(--muted);font-weight:750;display:block;margin-bottom:4px}
-.sect{font-size:10px;text-transform:uppercase;letter-spacing:.25px;font-weight:800;color:#344054;margin:0 0 5px}
+.label{font-size:13px;line-height:1.1;color:var(--muted);font-weight:750;display:block;margin-bottom:4px}
+.sect{font-size:11px;text-transform:uppercase;letter-spacing:.25px;font-weight:800;color:#344054;margin:0 0 5px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .field input{display:block;width:100%;height:44px;border:1px solid #cbd5e1;border-radius:9px;padding:5px 9px;background:#fff;color:var(--ink);font-size:var(--number-size) !important;font-weight:800;min-width:0;line-height:1.05}
-.note{font-size:10px;line-height:1.2;color:var(--muted);margin-top:4px}
+.note{font-size:11px;line-height:1.2;color:var(--muted);margin-top:4px}
 .modes{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;border-radius:9px;background:#eef2f7;margin-bottom:6px}
-.mode{border:0;border-radius:7px;padding:6px 3px;background:transparent;font-size:10px;color:#475569;font-weight:750}
+.mode{border:0;border-radius:7px;padding:6px 3px;background:transparent;font-size:11px;color:#475569;font-weight:750}
 .mode.active{background:#fff;color:#174ea6;box-shadow:0 1px 4px #0002}
 .result{background:linear-gradient(135deg,#10234d,#164eaa);color:white;border-radius:13px;padding:8px;margin:0 5px 5px;flex:0 0 auto}
-.muted{color:#d4e2ff;font-size:9px;font-weight:650}
+.muted{color:#d4e2ff;font-size:10px;font-weight:650}
 .big{font-size:var(--number-size) !important;font-weight:800;letter-spacing:0;line-height:1.05;margin:1px 0 5px}
 .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
 .rbox{background:#ffffff18;border:1px solid #ffffff20;border-radius:8px;padding:6px}
-.rbox span{display:block;color:#d4e2ff;font-size:8px;line-height:1.15}
+.rbox span{display:block;color:#d4e2ff;font-size:9px;line-height:1.15}
 .rbox b{font-size:13px;line-height:1.1;display:block;margin-top:2px}
-.explain{font-size:9px;line-height:1.2;color:#c9e6ff;margin-top:5px;font-weight:650}
-.foot{text-align:center;font-size:8px;line-height:1.2;color:var(--muted);padding:0 12px;margin-top:0;flex:0 0 auto}
+.explain{font-size:10px;line-height:1.2;color:#c9e6ff;margin-top:5px;font-weight:650}
+.foot{text-align:center;font-size:9px;line-height:1.2;color:var(--muted);padding:0 12px;margin-top:0;flex:0 0 auto}
 .hidden{display:none!important}
 .donation{text-align:center;justify-content:center;padding:12px}
 .donation h2{font-size:20px}
@@ -43,25 +43,25 @@ button{font:inherit;cursor:pointer}
 @media(max-height:760px){
 :root{--number-size:26px}
 header{margin-bottom:3px}
-h1{font-size:16px}
+h1{font-size:18px}
 .card{padding:6px;margin-bottom:4px}
-.label{font-size:11px;margin-bottom:3px}
-.sect{font-size:9px;margin-bottom:4px}
+.label{font-size:12px;margin-bottom:3px}
+.sect{font-size:10px;margin-bottom:4px}
 .field input{height:40px}
-.note{font-size:9px}
+.note{font-size:10px}
 .modes{margin-bottom:4px}
-.mode{padding:5px 2px;font-size:9px}
+.mode{padding:5px 2px;font-size:10px}
 .result{padding:7px;margin-bottom:3px}
 .rbox{padding:5px}
 .rbox b{font-size:12px}
-.explain,.foot{font-size:8px}
+.explain,.foot{font-size:9px}
 }
 @media(max-height:680px){
 :root{--number-size:24px}
-.sub{font-size:8px}
+.sub{font-size:9px}
 .donate{padding:5px 7px}
 .field input{height:36px}
-.foot{font-size:7px}
+.foot{font-size:8px}
 }
 </style></head><body>
 <main id="app"><header><div><h1>Calculadora Renda Fixa</h1><div class="sub">Equivalência líquida · LCA / LCI × CDB</div></div><button class="donate" id="donate">♥ Doar R$ 1</button></header>
