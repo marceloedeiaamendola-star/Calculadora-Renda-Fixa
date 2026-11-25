@@ -15,7 +15,8 @@ header{display:flex;justify-content:flex-start;align-items:center;margin:0 0 7px
 header h1{font-size:30px !important;margin:0;color:#174ea6;font-weight:800;letter-spacing:-.5px;line-height:1.05;white-space:nowrap}
 .sub{font-size:10px;color:var(--muted);margin-top:2px}
 button{font:inherit;cursor:pointer}
-.donate{position:absolute;right:18px;bottom:16px;z-index:20;border:0;border-radius:30px;padding:7px 9px;background:#fff0f1;color:#b42336;font-weight:750;font-size:11px;white-space:nowrap}\n.reset{position:absolute;left:18px;bottom:16px;z-index:20;border:0;border-radius:30px;padding:7px 10px;background:#174ea6;color:#fff;font-weight:750;font-size:11px;white-space:nowrap;box-shadow:0 2px 8px #102a6320}
+.donate{position:absolute;right:18px;bottom:16px;z-index:20;border:0;border-radius:30px;padding:7px 9px;background:#fff0f1;color:#b42336;font-weight:750;font-size:11px;white-space:nowrap}
+.reset{position:absolute;left:18px;bottom:16px;z-index:20;border:0;border-radius:30px;padding:7px 10px;background:#174ea6;color:#fff;font-weight:750;font-size:11px;white-space:nowrap;box-shadow:0 2px 8px #102a6320}
 .card{background:white;border:1px solid var(--line);border-radius:13px;padding:8px;margin:0 5px 6px;box-shadow:0 2px 8px #122b5510;flex:0 0 auto}
 .label{font-size:13px;line-height:1.1;color:var(--muted);font-weight:750;display:block;margin-bottom:4px}
 .sect{font-size:11px;text-transform:uppercase;letter-spacing:.25px;font-weight:800;color:#344054;margin:0 0 5px}
@@ -60,7 +61,8 @@ header h1{font-size:24px !important;white-space:nowrap}
 @media(max-height:680px){
 :root{--number-size:24px}
 .sub{font-size:9px}
-.donate{padding:5px 7px;bottom:12px}\n.reset{padding:5px 8px;bottom:12px}
+.donate{padding:5px 7px;bottom:12px}
+.reset{padding:5px 8px;bottom:12px}
 .field input{height:36px}
 .foot{font-size:8px}
 }
@@ -77,7 +79,7 @@ main#app header h1{font-size:30px !important;color:#174ea6 !important;letter-spa
 <div class="grid"><div class="field"><input id="rate" type="number" aria-label="Rentabilidade do investimento em percentual do CDI" min="0" step=".1" value="90"></div><div class="field"><input id="months" type="number" aria-label="Prazo em meses" min="1" max="600" step="1" value="12"></div></div><div class="note"><span>Rentabilidade em % do CDI</span><span>Prazo em meses</span></div></section>
 <section class="result" aria-live="polite"><div class="muted" id="eqLabel">CDB equivalente</div><div class="big" id="equiv">—</div><div class="rgrid">
 <div class="rbox"><span>Montante líquido LCA / LCI</span><b id="lciFinal">—</b></div><div class="rbox"><span>Montante líquido CDB equivalente</span><b id="cdbFinal">—</b></div><div class="rbox"><span>IR aplicado ao CDB</span><b id="ir">—</b></div><div class="rbox"><span>Rendimento líquido</span><b id="gain">—</b></div></div><div class="explain" id="explain">Montante final sobre R$ 1.000,00</div></section>
-<div class="foot">Simulação com taxa constante e juros compostos. IR do CDB sobre o rendimento no resgate. Prazo convertido a 30 dias/mês para definir a alíquota. Não é recomendação de investimento.<br>Idealizador: Marcelo Amendola</div><button class="reset" id="reset" type="button">↺ Resetar</button><button class="donate" id="donate">♥ Doar R$ 1</button></main>
+<div class="foot">Simulação com taxa constante e juros compostos. IR do CDB sobre o rendimento no resgate. Prazo convertido a 30 dias/mês para definir a alíquota. Não é recomendação de investimento.<br>Idealizador: Marcelo Amendola</div><button class="reset" id="reset" type="button">↻ Reiniciar</button><button class="donate" id="donate">♥ Doar R$ 1</button></main>
 <main id="donationPage" class="donation hidden"><h2>Apoie este projeto ♥</h2><p>Se você gostou, considere doar R$ 1 usando o QR Code Pix.</p><img class="qr" src="pix-doacao.png" alt="QR Code Pix para doação"><p>Obrigado por apoiar o desenvolvimento!</p><button class="back" id="back">Voltar à calculadora</button></main>
 <script>
 (()=>{const $=id=>document.getElementById(id),money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}),pct=n=>n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%';let mode='lci',cdiManual=false;
