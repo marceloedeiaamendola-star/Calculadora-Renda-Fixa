@@ -16,7 +16,9 @@ button{font:inherit;cursor:pointer}.donate{border:0;border-radius:30px;padding:9
 .result{background:linear-gradient(135deg,#10234d,#164eaa);color:white;border-radius:15px;padding:12px;margin-bottom:8px}.muted{color:#d4e2ff;font-size:10px;font-weight:650}.big{font-size:28px;font-weight:850;letter-spacing:-.7px;margin:2px 0 8px}.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.rbox{background:#ffffff18;border:1px solid #ffffff20;border-radius:9px;padding:8px}.rbox span{display:block;color:#d4e2ff;font-size:9px}.rbox b{font-size:16px;display:block;margin-top:2px}.explain{font-size:10px;color:#c9e6ff;margin-top:7px;font-weight:650}.foot{text-align:center;font-size:10px;line-height:1.35;color:var(--muted);padding:0 6px}
 .hidden{display:none!important}.donation{text-align:center;padding-top:24px}.donation h2{font-size:22px}.donation p{color:var(--muted);font-size:13px}.qr{width:min(76vw,290px);height:auto;background:#fff;padding:6px;border-radius:10px}.back{display:block;margin:12px auto;border:0;border-radius:10px;padding:11px 22px;background:var(--blue);color:#fff;font-weight:750}
 @media(max-height:740px){main{padding-top:5px}.card{padding:9px;margin-bottom:6px}header{margin-bottom:6px}h1{font-size:19px}.big{font-size:25px}.result{padding:10px}.field input{padding:8px;font-size:16px}}
-/* Safari iOS: inputs >=16px evitam zoom automático ao receber foco. Mantém pinch zoom acessível. */\n.field input, input, select, textarea{font-size:16px;-webkit-text-size-adjust:100%;}\n</style></head><body>
+/* Safari iOS: fonte de 16px ou maior evita zoom automático ao focar os campos. O zoom manual continua acessível. */
+.field input, input, select, textarea{font-size:16px;-webkit-text-size-adjust:100%;}
+</style></head><body>
 <main id="app"><header><div><h1>Calculadora Renda Fixa</h1><div class="sub">Equivalência líquida · LCA / LCI × CDB</div></div><button class="donate" id="donate">♥ Doar R$ 1</button></header>
 <section class="card"><div class="sect">Taxas de referência · % ao ano</div><div class="grid">
 <div class="field"><label class="label" for="selic">Selic</label><input id="selic" type="number" min="0" step=".01" value="13.75"></div>
