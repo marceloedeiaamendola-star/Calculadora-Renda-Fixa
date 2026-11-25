@@ -1,3 +1,4 @@
+# Deploy limpo após falha transitória de publicação do Pages
 name: Deploy Renda Fixa Calculator to GitHub Pages
 on:
   push:
