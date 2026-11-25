@@ -5,7 +5,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="apple-touch-icon.png">
 <title>Calculadora Renda Fixa</title>
 <style>
-:root{--bg:#f3f6fb;--ink:#14213a;--muted:#65748b;--line:#dce5f0;--blue:#155eef;--number-size:28px}
+:root{--bg:#f3f6fb;--ink:#14213a;--muted:#65748b;--line:#dce5f0;--blue:#155eef;--number-size:30px}
 *{box-sizing:border-box}
 html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg)}
 body{color:var(--ink);font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
@@ -27,7 +27,7 @@ button{font:inherit;cursor:pointer}
 .mode.active{background:#fff;color:#174ea6;box-shadow:0 1px 4px #0002}
 .result{background:linear-gradient(135deg,#10234d,#164eaa);color:white;border-radius:13px;padding:8px;margin:0 5px 5px;flex:0 0 auto}
 .muted{color:#d4e2ff;font-size:9px;font-weight:650}
-.big{font-size:var(--number-size) !important;font-weight:850;letter-spacing:-.5px;line-height:1.05;margin:1px 0 5px}
+.big{font-size:var(--number-size) !important;font-weight:800;letter-spacing:0;line-height:1.05;margin:1px 0 5px}
 .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
 .rbox{background:#ffffff18;border:1px solid #ffffff20;border-radius:8px;padding:6px}
 .rbox span{display:block;color:#d4e2ff;font-size:8px;line-height:1.15}
@@ -69,7 +69,7 @@ h1{font-size:16px}
 <div class="field"><label class="label" for="selic">Selic</label><input id="selic" type="number" min="0" step=".01" value="13.75"></div>
 <div class="field"><label class="label" for="cdi">CDI</label><input id="cdi" type="number" min="0" step=".01" value="13.65"></div></div><div class="note" id="status">CDI sugerido = Selic − 0,10 p.p. · Taxas editáveis</div></section>
 <section class="card"><div class="sect">Informe o investimento conhecido</div><div class="modes"><button class="mode active" data-mode="lci">Tenho LCA / LCI</button><button class="mode" data-mode="cdb">Tenho CDB</button></div>
-<div class="grid"><div class="field"><label class="label" id="rateLabel" for="rate">Rentabilidade LCA / LCI</label><input id="rate" type="number" min="0" step=".1" value="90"></div><div class="field"><label class="label" for="months">Prazo</label><input id="months" type="number" min="1" max="600" step="1" value="12"></div></div><div class="note">Rentabilidade em % do CDI · prazo em meses</div></section>
+<div class="grid"><div class="field"><label class="label" id="rateLabel" for="rate" aria-hidden="true" style="visibility:hidden">Rentabilidade LCA / LCI</label><input id="rate" type="number" aria-label="Rentabilidade LCA / LCI" min="0" step=".1" value="90"></div><div class="field"><label class="label" for="months">Prazo</label><input id="months" type="number" min="1" max="600" step="1" value="12"></div></div><div class="note">Rentabilidade em % do CDI · prazo em meses</div></section>
 <section class="result" aria-live="polite"><div class="muted" id="eqLabel">CDB equivalente</div><div class="big" id="equiv">—</div><div class="rgrid">
 <div class="rbox"><span>Montante líquido LCA / LCI</span><b id="lciFinal">—</b></div><div class="rbox"><span>Montante líquido CDB equivalente</span><b id="cdbFinal">—</b></div><div class="rbox"><span>IR aplicado ao CDB</span><b id="ir">—</b></div><div class="rbox"><span>Rendimento líquido</span><b id="gain">—</b></div></div><div class="explain" id="explain">Montante final sobre R$ 1.000,00</div></section>
 <div class="foot">Simulação com taxa constante e juros compostos. IR do CDB sobre o rendimento no resgate. Prazo convertido a 30 dias/mês para definir a alíquota. Não é recomendação de investimento.<br>Idealizador: Marcelo Amendola</div></main>
